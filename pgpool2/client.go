@@ -189,6 +189,9 @@ func (c *Client) ExecNodeCount() (int, error) {
 		return 0, err
 	}
 	resultString := strings.TrimSpace(string(bytes))
+	if len(resultString) == 0 {
+		return 0, nil
+	}
 	resultInt, err := strconv.Atoi(resultString)
 	if err != nil {
 		return 0, err
